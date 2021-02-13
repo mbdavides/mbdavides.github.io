@@ -6,29 +6,37 @@ var fechaInicial = document.getElementById("fecha-ini"),
     divSuspensiones = document.getElementById("div-suspensiones"),
     btnCalcular = document.getElementById("btn-calcular"),
     btnAgregarSus = document.getElementById("btn-suspension"),
-    formato = 'LL',
-    contSuspensiones = 0;
+    spanRespuesta = document.getElementById("span-respuesta"),
+    formato = 'LL';
 
 function agregarSuspension(){
-    contSuspensiones += 1;
-    let inputSusIni =  document.createElement("input"),
-        inputSusFin =  document.createElement("input"),
+    let divSuspension = document.createElement("div"),
         spanSusIni = document.createElement("span"),
         spanSusFin = document.createElement("span"),
+        inputSusIni =  document.createElement("input"),
+        inputSusFin =  document.createElement("input"),
+        cerrarSus = document.createElement("button"),
         br = document.createElement("br");
     
     inputSusIni.setAttribute('type', 'date');
     inputSusFin.setAttribute('type', 'date');
-    inputSusIni.id = "sus-ini-" + contSuspensiones;
-    inputSusFin.id = "sus-fin-" + contSuspensiones;
+    inputSusIni.className = "sus-ini";
+    inputSusFin.className = "sus-fin";
     spanSusIni.innerText = "Suspensión Inicio";
     spanSusFin.innerText = "Suspensión Fin";
+    cerrarSus.innerText = "x";
 
-    divSuspensiones.appendChild(spanSusIni);
-    divSuspensiones.appendChild(inputSusIni);
-    divSuspensiones.appendChild(spanSusFin);
-    divSuspensiones.appendChild(inputSusFin);
-    divSuspensiones.appendChild(br);
+    divSuspension.appendChild(spanSusIni);
+    divSuspension.appendChild(inputSusIni);
+    divSuspension.appendChild(spanSusFin);
+    divSuspension.appendChild(inputSusFin);
+    divSuspension.appendChild(cerrarSus);
+    divSuspension.appendChild(br);
+    divSuspensiones.appendChild(divSuspension);
+
+    cerrarSus.addEventListener("click", function(){
+        divSuspension.remove();
+    });
 }
 
 btnAgregarSus.addEventListener("click", function(){
@@ -36,14 +44,15 @@ btnAgregarSus.addEventListener("click", function(){
 });
 
 function calcularDiasSuspension(){
-    var diasSuspension = 0;
-    for (var i = 1; i <= contSuspensiones; i++) {
-        let fechaSus1 = document.getElementById("sus-ini-" + i).value,
-            fechaSus2 = document.getElementById("sus-fin-" + i).value;
-        fechaSus1 = moment(fechaSus1);
-        fechaSus2 = moment(fechaSus2);
+    var diasSuspension = 0,
+        arrSusIni = document.querySelectorAll(".sus-ini"),
+        arrSusFin = document.querySelectorAll(".sus-fin");
+    
+    arrSusIni.forEach(function(element, index){
+        let fechaSus1 = moment(element.value),
+            fechaSus2 = moment(arrSusFin[index].value);
         diasSuspension += fechaSus2.diff(fechaSus1, 'days');
-    }
+    });
     calcularFechaFin(diasSuspension);
 }
 
@@ -52,15 +61,14 @@ function calcularFechaFin(diasSuspension){
         fechaFin = fechaIni.clone().add(anosCaducidad.value, 'years');
     fechaFin = fechaFin.add(mesesCaducidad.value, 'months');
     fechaFin = fechaFin.add(diasSuspension, 'days');
-    alert(fechaFin.format(formato));
+    spanRespuesta.innerText = "Fecha Final del Proceso: " + fechaFin.format(formato);
 }
 
 function calcular(){
-    if (contSuspensiones != 0) {
+    if (divSuspensiones.childElementCount > 0)
         calcularDiasSuspension();
-    } else {
+    else
         calcularFechaFin(0);
-    }
 }
 
 btnCalcular.addEventListener("click", function(){
