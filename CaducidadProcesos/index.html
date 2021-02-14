@@ -5,26 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caducidad de Procesos</title>
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
     <div class="container">
-        <h3>Calculadora de Caducidad de Procesos</h3>
-        <span>Fecha Inicial del proceso</span>
-        <input type="date" id="fecha-ini">
-        <br>
-        <span>Tiempo de Caducidad</span>
-        <input type="number" id="anos-cad">
-        <span> Años </span>
-        <input type="number" id="meses-cad">
-        <span> Meses </span>
-        <br>
-        <div id="div-suspensiones"></div>
-        <button id="btn-suspension">Agregar Suspensión</button>
-        <br>
-        <button id="btn-calcular">Calcular</button>
-        <br>
-        <div>
-            <span id="span-respuesta"></span>
+        <div class="header">
+            <a href="index.html" class="a-selected">Caducidad de Procesos</a>
+            <a href="../CalculadoraFechas/index.html">Calculadora de Fechas</a>
+        </div>
+        <div class="section">
+            <div>
+                <span>Fecha Inicial del proceso</span>
+                <input type="date" id="fecha-ini">
+            </div>
+            <div>
+                <span>Tiempo de Caducidad</span>
+                <div>
+                    <input type="number" id="anos-cad">
+                    <span>Años</span>
+                    <input type="number" id="meses-cad">
+                    <span>Meses</span>
+                </div>
+            </div>
+            <div id="div-suspensiones">
+                <span>Suspensión</span>
+            </div>
+            <div>
+                <button id="btn-suspension">Agregar Suspensión</button>
+                <button id="btn-calcular">Calcular</button>
+            </div>
+            <div id="div-respuesta">
+                <span id="span-respuesta"></span>
+            </div>
         </div>
     </div>
     <script src="js/moment-with-locales.min.js"></script>

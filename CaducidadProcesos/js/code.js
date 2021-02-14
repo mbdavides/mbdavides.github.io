@@ -6,10 +6,12 @@ var fechaInicial = document.getElementById("fecha-ini"),
     divSuspensiones = document.getElementById("div-suspensiones"),
     btnCalcular = document.getElementById("btn-calcular"),
     btnAgregarSus = document.getElementById("btn-suspension"),
+    divRespuesta = document.getElementById("div-respuesta"),
     spanRespuesta = document.getElementById("span-respuesta"),
     formato = 'LL';
 
 function agregarSuspension(){
+    divSuspensiones.style.display = "flex";
     let divSuspension = document.createElement("div"),
         spanSusIni = document.createElement("span"),
         spanSusFin = document.createElement("span"),
@@ -22,8 +24,8 @@ function agregarSuspension(){
     inputSusFin.setAttribute('type', 'date');
     inputSusIni.className = "sus-ini";
     inputSusFin.className = "sus-fin";
-    spanSusIni.innerText = "Suspensión Inicio";
-    spanSusFin.innerText = "Suspensión Fin";
+    spanSusIni.innerText = "Inicio";
+    spanSusFin.innerText = "Fin";
     cerrarSus.innerText = "x";
 
     divSuspension.appendChild(spanSusIni);
@@ -36,6 +38,8 @@ function agregarSuspension(){
 
     cerrarSus.addEventListener("click", function(){
         divSuspension.remove();
+        if (divSuspensiones.childElementCount == 1)
+            divSuspensiones.style.display = "none";
     });
 }
 
@@ -57,11 +61,12 @@ function calcularDiasSuspension(){
 }
 
 function calcularFechaFin(diasSuspension){
+    divRespuesta.style.display = "flex";
     let fechaIni = moment(fechaInicial.value),
         fechaFin = fechaIni.clone().add(anosCaducidad.value, 'years');
     fechaFin = fechaFin.add(mesesCaducidad.value, 'months');
     fechaFin = fechaFin.add(diasSuspension, 'days');
-    spanRespuesta.innerText = "Fecha Final del Proceso: " + fechaFin.format(formato);
+    spanRespuesta.innerHTML = "<b>Fecha Final del Proceso:</b> " + fechaFin.format(formato);
 }
 
 function calcular(){

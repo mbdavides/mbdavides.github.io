@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-size: 17px;
+    background: url("../images/wooden-board-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+}
+
+.header a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #949494;
+    margin: 0px 1rem;
+    transition: all 0.3s;
+}
+
+.header a:hover {
+    font-size: 1.3rem;
+}
+
+.header .a-selected {
+    color: #ffffff;
+}
+
+.section {
+    margin-top: 3rem;
+    width: 32rem;
+    min-height: 25rem;
+    padding: 0.6rem;
+    background: #ffffff;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.section > div {
+    min-height: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.section input {
+    padding: 0.3rem;
+    text-align: center;
+}
+
+.section #anos-cad, .section #meses-cad {
+    width: 3rem;
+}
+
+.section #div-suspensiones{
+    display: none;
+}
+
+.section #div-respuesta {
+    display: none;
+}
+
+.section #div-suspensiones button {
+    padding: 0.3rem 0.4rem;
+    font-size: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #ffffff;
+    background: rgb(196, 61, 61);
+}
+
+.section #div-suspensiones > div {
+    margin: 0.6rem 0px;
+}
+
+.section #div-suspensiones input {
+    margin: 0px 0.35rem 0px 0.2rem;
+}
+
+.section #btn-suspension {
+    padding: 0.4rem;
+    font-size: 1rem;
+    border-radius: 7px;
+    cursor: pointer;
+    color: #ffffff;
+    border-color: #e07b1c;
+    background: #e9903d;
+}
+
+.section #btn-calcular {
+    padding: 0.4rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    border-color: #2675b6;
+    background: #4586bb;
+}
+
+.section #span-respuesta {
+    font-size: 1.3rem;
+}
+
+@media screen and (max-width: 700px) {
+    body {
+        font-size: 14px;
+    }
+
+    .section {
+        width: 28rem;
+    }
+}
