@@ -4,6 +4,41 @@
     font-family: sans-serif;
 }
 
+html {
+    height: 100%;
+}
+
+body {
+    background: url("images/wooden-board-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.header {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header a {
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 2px 2px 3px rgb(0, 0, 0);
+    color: #949494;
+    margin: 0px 1rem;
+    transition: all 0.3s;
+}
+
+.header a:hover {
+    font-size: 1.3rem;
+}
+
+.header .a-selected {
+    color: #ffffff;
+}
+
 .container {
     position: absolute;
     /*margin: auto;*/
