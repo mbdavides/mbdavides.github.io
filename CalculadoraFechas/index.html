@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Fechas</title>
+    <link rel="icon" type="images/png" href="images/imagen_32.png" sizes="32x32">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="../CaducidadProcesos/index.html">Caducidad de Procesos</a>
+            <a href="index.html" class="a-selected">Calculadora de Fechas</a>
+        </div>
+        <div class="section">
+            <div>
+                <h4>Tiempo entre 2 Fechas</h3>
+                <div>
+                    <span>Fecha 1</span>
+                    <input type="date" id="fecha1">
+                    <span>Fecha 2</span>
+                    <input type="date" id="fecha2">
+                </div>
+                <button id="btn-calcular1">Calcular</button>
+                <div id="div-respuesta1">
+                    <span id="span-res1"></span>
+                    <span id="span-res2"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div>
+                <h4>Fecha Más Tiempo</h3>
+                <span>Fecha</span>
+                <input type="date" id="fecha-ini">
+            </div>
+            <div>
+                <div>
+                    <input type="number" id="anos">
+                    <span>Años</span>
+                    <input type="number" id="meses">
+                    <span>Meses</span>
+                    <input type="number" id="dias">
+                    <span>Días</span>
+                </div>
+                <button id="btn-calcular2">Calcular</button>
+                <div id="div-respuesta2">
+                    <span id="span-res3"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/moment-with-locales.min.js"></script>
+    <script src="js/code.js"></script>
+</body>
+</html>

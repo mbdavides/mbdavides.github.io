@@ -47,7 +47,7 @@ body {
 .section {
     margin-top: 3rem;
     width: 32rem;
-    min-height: 25rem;
+    min-height: 15rem;
     padding: 0.6rem;
     background: #ffffff;
     border-radius: 50px;
@@ -57,11 +57,11 @@ body {
 }
 
 .section > div {
-    min-height: 6rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    flex-grow: 1;
 }
 
 .section input {
@@ -69,46 +69,23 @@ body {
     text-align: center;
 }
 
-.section #anos-cad, .section #meses-cad {
+.section #anos, .section #meses, .section #dias {
     width: 3rem;
 }
 
-.section #div-suspensiones{
+.section #div-respuesta1 {
     display: none;
+    height: 2rem;
+    flex-direction: column;
 }
 
-.section #div-respuesta {
+.section #div-respuesta2 {
     display: none;
+    height: 2rem;
+    flex-direction: column;
 }
 
-.section #div-suspensiones button {
-    padding: 0.3rem 0.4rem;
-    font-size: 1rem;
-    border-radius: 50%;
-    cursor: pointer;
-    color: #ffffff;
-    background: rgb(196, 61, 61);
-}
-
-.section #div-suspensiones > div {
-    margin: 0.6rem 0px;
-}
-
-.section #div-suspensiones input {
-    margin: 0px 0.35rem 0px 0.2rem;
-}
-
-.section #btn-suspension {
-    padding: 0.4rem;
-    font-size: 1rem;
-    border-radius: 7px;
-    cursor: pointer;
-    color: #ffffff;
-    border-color: #e07b1c;
-    background: #e9903d;
-}
-
-.section #btn-calcular {
+.section button {
     padding: 0.4rem;
     font-size: 1rem;
     border-radius: 5px;
@@ -116,10 +93,6 @@ body {
     color: #ffffff;
     border-color: #2675b6;
     background: #4586bb;
-}
-
-.section #span-respuesta {
-    font-size: 1.3rem;
 }
 
 @media screen and (max-width: 700px) {
